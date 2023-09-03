@@ -1,6 +1,7 @@
-import { getMovieReviews } from 'Api';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+import { getMovieReviews } from 'Api';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -17,7 +18,7 @@ const Reviews = () => {
               <p>{content}</p>
             </li>
           ))
-        : "We don't have any reviews for this movie"}
+        : "We don't have any reviews for this movie :("}
     </ul>
   );
 };

@@ -26,7 +26,7 @@ const Movies = () => {
       if (!data.results.length) {
         setIsLoading(false);
         setError(true);
-        return console.log('There is no movies with this request.');
+        return;
       }
       setError(false);
       setMoviesList(data.results);
