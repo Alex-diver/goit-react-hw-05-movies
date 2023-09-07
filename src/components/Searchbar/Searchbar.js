@@ -2,12 +2,7 @@ import { useState } from 'react';
 
 import { GoSearch } from 'react-icons/go';
 
-import {
-  SearchForm,
-  SearchFormButton,
-  SearchFormBtnLabel,
-  SearchFormInput,
-} from './SearchBar.styled';
+import { SearchMyForm, SearchButton, SearchInput } from './SearchBar.styled';
 
 const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
@@ -25,8 +20,8 @@ const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <SearchForm onSubmit={handleSearch}>
-      <SearchFormInput
+    <SearchMyForm onSubmit={handleSearch}>
+      <SearchInput
         type="text"
         autoComplete="off"
         autoFocus
@@ -34,11 +29,10 @@ const SearchBar = ({ onSubmit }) => {
         value={query}
         onChange={inputChange}
       />
-      <SearchFormButton type="submit">
+      <SearchButton type="submit">
         <GoSearch size="20" />
-        <SearchFormBtnLabel>Search</SearchFormBtnLabel>
-      </SearchFormButton>
-    </SearchForm>
+      </SearchButton>
+    </SearchMyForm>
   );
 };
 
