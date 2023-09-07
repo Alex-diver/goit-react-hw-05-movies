@@ -60,9 +60,9 @@ export const searchMovies = async (query, page) => {
   }
 };
 
-export const getMovieDetails = async movie_id => {
+export const getMovieDetails = async movieId => {
   try {
-    const response = await axios.get(`/movie/${movie_id}`, {
+    const response = await axios.get(`/movie/${movieId}`, {
       params: {
         api_key: API_KEY,
       },
@@ -74,10 +74,10 @@ export const getMovieDetails = async movie_id => {
   }
 };
 
-export const getMovieCredits = async movie_id => {
+export const getMovieCredits = async movieId => {
   try {
     const response = await axios.get(
-      `movie/${movie_id}/credits?api_key=${API_KEY}&language=en-US`
+      `movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
     );
     return response.data;
   } catch (error) {
@@ -86,10 +86,10 @@ export const getMovieCredits = async movie_id => {
   }
 };
 
-export const getMovieReviews = async movie_id => {
+export const getMovieReviews = async movieId => {
   try {
     const response = await axios.get(
-      `movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+      `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`
     );
     return response.data;
   } catch (error) {
