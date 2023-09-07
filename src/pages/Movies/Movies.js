@@ -3,9 +3,10 @@ import { useSearchParams, useLocation } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 
 import { searchMovies } from 'Api';
-import SearchBar from '../../components/SearchBar/SearchBar';
+// import SearchBar from '../../components/SearchBar/SearchBar';
 
 import { List, NavLink } from 'pages/Home/Home.styled';
+import SearchBar from 'components/SearchBar/SearchBar';
 
 const Movies = () => {
   const location = useLocation();
