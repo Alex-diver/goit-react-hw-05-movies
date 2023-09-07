@@ -7,7 +7,7 @@ import {
   SearchFormButton,
   SearchFormBtnLabel,
   SearchFormInput,
-} from './Searchbar.styled';
+} from './SearchBar.styled';
 
 const Searchbar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
