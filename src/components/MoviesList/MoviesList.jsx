@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { NavLink, List } from './MoviesList.styled';
 
-const MovieCard = ({ films }) => {
+const MoviesList = ({ films }) => {
   const location = useLocation();
 
   return (
@@ -21,4 +21,4 @@ const MovieCard = ({ films }) => {
   );
 };
 
-export default MovieCard;
+export default MoviesList;

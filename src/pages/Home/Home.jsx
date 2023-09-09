@@ -6,7 +6,6 @@ import MoviesList from 'components/MoviesList/MoviesList';
 
 const Home = () => {
   const [trendMovies, setTrendMovies] = useState([]);
-
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {

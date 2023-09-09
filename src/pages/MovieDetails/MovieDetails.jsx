@@ -1,6 +1,8 @@
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
+
+import { Loader } from 'components/Loader/Loader';
 
 import { getMovieDetails } from 'Api';
 import {
@@ -74,7 +76,9 @@ const MovieDetails = () => {
           </ListLi>
         </ul>
       </InfoBox>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </main>
   );
 };

@@ -1,62 +1,46 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+
 import { Loader } from 'components/Loader/Loader';
 
 import { searchMovies } from 'Api';
+
 import SearchBar from 'components/SearchForm/SearchForm';
 
-import { List, NavLink } from 'components/MoviesList/MoviesList.styled';
+import MoviesList from 'components/MoviesList/MoviesList';
 
 const Movies = () => {
-  const location = useLocation();
+  const [searchResults, setSearchResults] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
-  const movieName = searchParams.get('movieName') ?? '';
-  const [moviesList, setMoviesList] = useState([]);
+  const movieName = searchParams.get('query') ?? '';
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+
+  const queryUpdate = query => {
+    const nextParams = query !== '' && { query };
+    setSearchParams(nextParams);
+  };
 
   useEffect(() => {
-    if (movieName === '') {
-      return;
-    }
-    setMoviesList([]);
-    setIsLoading(true);
-
-    searchMovies(movieName).then(data => {
-      if (!data.results.length) {
+    const loadResult = async () => {
+      try {
+        setIsLoading(true);
+        const movies = await searchMovies(movieName);
+        setSearchResults(movies);
+      } catch (error) {
+        console.log(error);
+      } finally {
         setIsLoading(false);
-        setError(true);
-        return;
       }
-      setError(false);
-      setMoviesList(data.results);
-      setIsLoading(false);
-    });
+    };
+    loadResult();
   }, [movieName]);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const searchForm = e.currentTarget;
-    setSearchParams({ movieName: searchForm.elements.movieName.value });
-    searchForm.reset();
-  };
   return (
-    <main>
-      <SearchBar onSubmit={handleSubmit} />
-      {error && <p>There is no movies with this request.</p>}
-      <List>
-        {moviesList.map(movie => {
-          return (
-            <li key={movie.id}>
-              <NavLink to={`/movies/${movie.id}`} state={{ from: location }}>
-                {movie.original_title ?? movie.name}
-              </NavLink>
-            </li>
-          );
-        })}
-        {isLoading && <Loader />}
-      </List>
-    </main>
+    <div>
+      <SearchBar value={movieName} onChange={queryUpdate} />
+      <MoviesList films={searchResults} />
+      {isLoading && <Loader />}
+    </div>
   );
 };
 export default Movies;

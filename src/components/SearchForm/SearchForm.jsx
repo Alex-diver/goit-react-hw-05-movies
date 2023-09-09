@@ -2,14 +2,9 @@ import { useState } from 'react';
 
 import { GoSearch } from 'react-icons/go';
 
-import {
-  SearchForm,
-  SearchFormButton,
-  // SearchFormBtnLabel,
-  SearchFormInput,
-} from './SearchForm.styled';
+import { SearchMyForm, SearchButton, SearchInput } from './SearchForm.styled';
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = ({ onChange }) => {
   const [query, setQuery] = useState('');
 
   const inputChange = event => {
@@ -21,23 +16,27 @@ const SearchBar = ({ onSubmit }) => {
     if (!query.trim()) {
       return;
     }
-    onSubmit(query);
+    onChange(query);
+    setQuery('');
   };
 
   return (
-    <SearchForm onSubmit={handleSearch}>
-      <SearchFormInput
-        type="text"
-        autoComplete="off"
-        autoFocus
-        placeholder=""
-        value={query}
-        onChange={inputChange}
-      />
-      <SearchFormButton type="submit">
-        <GoSearch size="20" />
-      </SearchFormButton>
-    </SearchForm>
+    <main>
+      <SearchMyForm onSubmit={handleSearch}>
+        <SearchInput
+          type="text"
+          name="movie_name"
+          title="Please enter movie name."
+          required
+          placeholder="Search movies"
+          value={query}
+          onChange={inputChange}
+        />
+        <SearchButton type="submit">
+          <GoSearch size="20" />
+        </SearchButton>
+      </SearchMyForm>
+    </main>
   );
 };
 

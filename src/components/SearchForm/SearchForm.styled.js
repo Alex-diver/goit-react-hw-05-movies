@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SearchForm = styled.form`
+export const SearchMyForm = styled.form`
   display: flex;
   width: 50%;
   max-width: 600px;
@@ -9,7 +9,7 @@ export const SearchForm = styled.form`
   overflow: hidden;
 `;
 
-export const SearchFormButton = styled.button`
+export const SearchButton = styled.button`
   display: inline-block;
   width: 80px;
   height: 35px;
@@ -19,11 +19,11 @@ export const SearchFormButton = styled.button`
   opacity: 1;
   cursor: pointer;
 `;
-export const SearchFormInput = styled.input`
+export const SearchInput = styled.input`
   display: inline-block;
   width: 50%;
   font: message-box;
-  font-size: 20px;
+  font-size: 15px;
   padding-left: 4px;
 
   ::placeholder {
