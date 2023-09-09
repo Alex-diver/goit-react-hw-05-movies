@@ -10,10 +10,10 @@ export const CastItem = styled.li`
   margin: 10px 0 16px;
   padding: 8px 10px;
 `;
-export const ActorName = styled.h3`
+export const ActorName = styled.h4`
   margin: 12px 0;
 `;
 export const Character = styled.p`
-  margin: 0;
-  font-weight: 600;
+  font-weight: 400;
+  width: 150px;
 `;

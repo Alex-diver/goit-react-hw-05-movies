@@ -17,6 +17,18 @@ export const LinkBtn = styled(Link)`
   align-items: center;
   column-gap: 10px;
 `;
+export const ListH2 = styled.h2`
+  margin-bottom: 10px;
+`;
+export const ListH3 = styled.h3`
+  margin-bottom: 10px;
+`;
+export const ListH4 = styled.h4`
+  margin-bottom: 10px;
+`;
+export const ListP = styled.p`
+  margin-bottom: 10px;
+`;
 export const MovieContainer = styled.div`
   display: flex;
   padding: 20px;
@@ -30,6 +42,9 @@ export const GenresList = styled.ul`
   display: flex;
   padding: 0;
   gap: 16px;
+`;
+export const ListLi = styled.li`
+  margin-bottom: 10px;
 `;
 
 export const InfoBox = styled.div`

@@ -7,6 +7,7 @@ import { ActorName, CastItem, CastList, Character } from './Cast.styled';
 const Cast = () => {
   const [cast, setCast] = useState([]);
   const { movieId } = useParams();
+
   useEffect(() => {
     getMovieCredits(movieId).then(data => setCast(data.cast));
   }, [movieId]);
@@ -21,9 +22,10 @@ const Cast = () => {
                 ? `https://image.tmdb.org/t/p/w500${profile_path}`
                 : `https://placehold.jp/24/cccccc/ffffff/140x210.png?text=There is no photo`
             }
-            width={140}
-            loading="lazy"
             alt="actor"
+            loading="lazy"
+            width={120}
+            height={180}
           />
           <ActorName>{name}</ActorName>
           <Character>Character:{character}</Character>

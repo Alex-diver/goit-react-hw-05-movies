@@ -10,6 +10,11 @@ import {
   InfoContainer,
   GenresList,
   InfoBox,
+  ListH2,
+  ListH3,
+  ListP,
+  ListH4,
+  ListLi,
 } from './MovieDetails.styled';
 
 const MovieDetails = () => {
@@ -42,11 +47,11 @@ const MovieDetails = () => {
           alt="poster"
         />
         <InfoContainer>
-          <h2>{original_title}</h2>
-          <h3>User score: {scoreToFixed}%</h3>
-          <h3>Overview</h3>
-          <p>{overview} </p>
-          <h3>Genres</h3>
+          <ListH2>{original_title}</ListH2>
+          <ListH3>User score: {scoreToFixed}%</ListH3>
+          <ListH3>Overview</ListH3>
+          <ListP>{overview} </ListP>
+          <ListH3>Genres</ListH3>
           <GenresList>
             {genres &&
               genres.length &&
@@ -55,18 +60,18 @@ const MovieDetails = () => {
         </InfoContainer>
       </MovieContainer>
       <InfoBox>
-        <h4>Additional information</h4>
+        <ListH4>Additional information</ListH4>
         <ul>
-          <li>
+          <ListLi>
             <Link to="cast" state={{ ...location.state }}>
               Cast
             </Link>
-          </li>
-          <li>
+          </ListLi>
+          <ListLi>
             <Link to="reviews" state={{ ...location.state }}>
               Reviews
             </Link>
-          </li>
+          </ListLi>
         </ul>
       </InfoBox>
       <Outlet />
